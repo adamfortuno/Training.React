@@ -2,17 +2,15 @@
 
 console.log('The visibility app is running.');
 
-var appRoot = document.getElementById('app');
-var showMessage = true;
-var message = "DeezNutz!";
+var visibility = true;
 
 var toggleMessage = function toggleMessage() {
-    showMessage = !showMessage;
+    visibility = !visibility;
     selfRender();
 };
 
 var selfRender = function selfRender() {
-    var template = React.createElement(
+    var jsx = React.createElement(
         'div',
         null,
         React.createElement(
@@ -23,16 +21,16 @@ var selfRender = function selfRender() {
         React.createElement(
             'button',
             { onClick: toggleMessage },
-            'Toggle Message'
+            visibility ? "Hide Details" : "Show Details"
         ),
         React.createElement(
             'p',
             null,
-            showMessage ? message : null
+            visibility ? "DeezNutz!" : null
         )
     );
 
-    ReactDOM.render(template, appRoot);
+    ReactDOM.render(jsx, document.getElementById('app'));
 };
 
 selfRender();
