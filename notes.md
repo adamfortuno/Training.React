@@ -113,6 +113,108 @@ If you need to rebuild the `node_modules` folder, you can just run `node install
 
 > Yarn seems to work like `npm`. Initializing a project creates a `package.json` file. When you install a module with `yarn`, you end up with a `yarn.lock` file, which stores installed module dependencies.
 
+formatting of html in your template
+referencing javascript expressions in your template
+ - static variables
+ - objects
+ - conditional rendering: functions, ternery operator, and logical ops.
+
+```javascript
+<p>{user.name ? user.name : "unknown"}</p>
+```
+
+```javascript
+{user.age > 0 && <p>Age: {user.age}</p>}
+```
+
+{getThing(user.thing)}
+
+var, is a mechanism for declaring variables in JavaScript.
+- variable's created with var can be re-assigned
+- variable's created with var can be re-defined (not possible w/let)
+- scoped to the function in-which it was created
+
+let, is a mechanism for declaring variables in JavaScript.
+- Introduced with ES6.
+- variables can be declared once
+- variables can be re-defined
+- scoped to the code block it was declared
+
+const, is a mechanism for declaring constants in JavaScript.
+- intorduced with ES6.
+- variables can be defined and declared once.
+- scoped to the code block it was declared
+
+ES5 functions
+- ES5 functions can be named
+- ES5 functions can be assgined to variables
+- ES5 functions can be anonymous
+- arguments IS bound: you have an array of arugments
+- "this" keyword is not bound in arrow functions
+ 
+Arrow functions
+- introduced with ES6
+- All arrow functions are anonymous
+- Shorthand syntax
+- arguments are not bound in arrow functions
+- Binds to the parent context's "this" value. If the parent had a value for 
+  this, that is what is in your arrow function.
+- It does not bind to it's own this value.
+
+Object Method Definition...
+
+ES5
+
+```javascript
+const obj = {
+   func: function() {
+   
+   }
+}
+```
+
+ES6
+
+```javascript
+const obj = {
+   func() {
+   
+   }
+}
+```
+
+Regardless of the way the method is defined, it behaves the same.
+
+
+```javascript
+const multiplier = {
+  numbers: [1, 3, 33, 4, 2],
+  multiplyer: 4,
+  multiply() {
+  	return this.numbers.map( number => number * this.multiplyer );
+  }
+}
+```
+
+console.log(multiplier.multiply());
+
+
+Templates...
+
+- Some attributes have the same name as HTML e,g, "id".
+- However, not all attributes have the same name e.g., "class" is "className"
+- You can get this from React's Documentation - facebook.github.io
+
+Virtal DOM
+- It looks like we're re-rendering the entire page.
+- React uses a virtal DOM to only update the portions of the page that changed.
+- This is far more efficent than re-rendering the entire page.
+- The diff-rendering is a performance feature of React.
+
+Forms
+- 
+
 ## Questions
 
 1. Can live-server only serve up a directory named `public`?
+2. Why can't you add the params to the functions in the event handler?
