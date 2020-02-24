@@ -115,9 +115,9 @@ If you need to rebuild the `node_modules` folder, you can just run `node install
 
 formatting of html in your template
 referencing javascript expressions in your template
- - static variables
- - objects
- - conditional rendering: functions, ternery operator, and logical ops.
+- static variables
+- objects
+- conditional rendering: functions, ternery operator, and logical ops.
 
 ```javascript
 <p>{user.name ? user.name : "unknown"}</p>
@@ -127,7 +127,9 @@ referencing javascript expressions in your template
 {user.age > 0 && <p>Age: {user.age}</p>}
 ```
 
+```javascript
 {getThing(user.thing)}
+```
 
 var, is a mechanism for declaring variables in JavaScript.
 - variable's created with var can be re-assigned
@@ -211,8 +213,23 @@ Virtal DOM
 - This is far more efficent than re-rendering the entire page.
 - The diff-rendering is a performance feature of React.
 
-Forms
-- 
+JSX cannot render JavaScript objects
+JSX can render JavaScript arrays
+JSX can render JSX
+
+```javascript
+const template = (
+  <div>
+    <h1>Section Title</h1>
+    {
+      [<p key="1">1</p>, <p key="2">1</p>]
+    }
+  </div>
+);
+```
+> When you render JSX inside an array, you should specify the `key` attribute so React has a unique identifier for each element.
+
+You can place javascript comments in a JSX expression.
 
 ## Questions
 
