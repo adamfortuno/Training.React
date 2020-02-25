@@ -231,6 +231,28 @@ const template = (
 
 You can place javascript comments in a JSX expression.
 
+React Components
+- An atomic piece of the user interface.
+- There is a parent component that can tie/group sub-components
+- There is a parent component that contains all other components on the page.
+- We can create components that host components.
+- Classes for React components have to start with a capitol letter
+- Every component has to include a render() method.
+- You can let components communicate with one-another through "props" or component props.
+
+
+ES6 Classes
+- Common to make the first letter of the class' name upper case.
+- You have to use the ES6 method definition syntax for method definition.
+- There are no commas between properties and methods in a class
+- There are no semi-colons after methods in a class
+
+
+```javascript
+!!undefined
+will return false
+```
+
 ## Questions
 
 1. Can live-server only serve up a directory named `public`?
