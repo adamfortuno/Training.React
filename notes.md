@@ -231,6 +231,12 @@ const template = (
 
 You can place javascript comments in a JSX expression.
 
+ES6 Classes
+- Common to make the first letter of the class' name upper case.
+- You have to use the ES6 method definition syntax for method definition.
+- There are no commas between properties and methods in a class
+- There are no semi-colons after methods in a class
+
 React Components
 - An atomic piece of the user interface.
 - There is a parent component that can tie/group sub-components
@@ -240,18 +246,23 @@ React Components
 - Every component has to include a render() method.
 - You can let components communicate with one-another through "props" or component props.
 
-
-ES6 Classes
-- Common to make the first letter of the class' name upper case.
-- You have to use the ES6 method definition syntax for method definition.
-- There are no commas between properties and methods in a class
-- There are no semi-colons after methods in a class
-
-
 ```javascript
 !!undefined
 will return false
 ```
+
+You can use `bind()` to assign a `this` to a function.
+mdn.bind
+
+You can do this in the reference to the method.
+You can do this in the class' constructor.
+
+React Component State
+- Components will re-render if their state changes
+ > You have to setup a component with a default state; series of key/value pairs.
+ > This will be what the component is initially rendered with.
+ > State changes in response to an event e.g., button click.
+ > Component re-renders with new state values
 
 ## Questions
 
