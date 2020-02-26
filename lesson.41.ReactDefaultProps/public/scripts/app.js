@@ -21,7 +21,7 @@ var Counter = function (_React$Component) {
         _this.counterReset = _this.counterReset.bind(_this);
 
         _this.state = {
-            counter: 0
+            counter: _this.props.counter
         };
         return _this;
     }
@@ -81,6 +81,10 @@ var Counter = function (_React$Component) {
     return Counter;
 }(React.Component);
 
+Counter.defaultProps = {
+    counter: 0
+};
+
 var Self = function (_React$Component2) {
     _inherits(Self, _React$Component2);
 
@@ -93,11 +97,12 @@ var Self = function (_React$Component2) {
     _createClass(Self, [{
         key: 'render',
         value: function render() {
-            return React.createElement(Counter, null);
+            return React.createElement(Counter, { counter: this.props.counter });
         }
     }]);
 
     return Self;
 }(React.Component);
 
-ReactDOM.render(React.createElement(Self, null), document.getElementById('app'));
+ReactDOM.render(React.createElement(Self, { counter: '2' }), document.getElementById('app'));
+// ReactDOM.render(<Self />, document.getElementById('app'));
