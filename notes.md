@@ -108,6 +108,10 @@ yarn init --yes
 yarn add babel-preset-react@6.24.1
 yarn add babel-preset-env@1.5.2
 ```
+...or...
+```
+yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2
+```
 
 If you need to rebuild the `node_modules` folder, you can just run `node install`; just like with `npm`.
 

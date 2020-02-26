@@ -9,7 +9,7 @@ class Counter extends React.Component {
         this.counterReset = this.counterReset.bind(this);
 
         this.state = {
-            counter: props.counter
+            counter: 0
         };
     }
     counterIncrement() {
@@ -34,10 +34,6 @@ class Counter extends React.Component {
         );
     }
 }
-
-Counter.defaultProps = {
-    counter: 0
-};
 
 class Self extends React.Component {
     constructor(props) {
