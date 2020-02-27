@@ -23,6 +23,12 @@ class Self extends React.Component {
 
     optionRemove(optionTarget) {
         console.log("called it!", optionTarget);
+
+        this.setState( (ps) => {
+            return {
+                options: ps.options.filter( (e) => e !== optionTarget)
+            };
+        });
     }
 
     optionSelect() {
@@ -54,7 +60,10 @@ class Self extends React.Component {
         return (
             <div>
                 <Header />
-                <Options options={this.state.options} optionRemove={this.optionRemove} />
+                <Options
+                    options={this.state.options}
+                    optionRemove={this.optionRemove}
+                />
                 <OptionEntry
                     optionCount={this.state.options.length}
                     optionClear={this.optionClear}
@@ -94,7 +103,7 @@ const Options = (props) =>  {
 
     return (
         <div>
-            {options.map((opt, idx) => <Option key={idx} option={opt} optionRemove={props.optionRemove}/>)}
+            {options.map((opt) => <Option key={opt} option={opt} optionRemove={props.optionRemove}/>)}
         </div>
     );    
 };
