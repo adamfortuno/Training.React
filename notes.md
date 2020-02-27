@@ -250,6 +250,8 @@ React Components
 - Every component has to include a render() method.
 - You can let components communicate with one-another through "props" or component props.
 
+
+
 ```javascript
 !!undefined
 will return false

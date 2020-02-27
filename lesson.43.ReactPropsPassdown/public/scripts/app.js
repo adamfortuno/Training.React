@@ -26,6 +26,7 @@ var Self = function (_React$Component) {
         _this.optionClear = _this.optionClear.bind(_this);
         _this.optionSelect = _this.optionSelect.bind(_this);
         _this.optionAdd = _this.optionAdd.bind(_this);
+        _this.optionRemove = _this.optionRemove.bind(_this);
         return _this;
     }
 
@@ -35,6 +36,11 @@ var Self = function (_React$Component) {
             this.setState(function () {
                 return { options: [] };
             });
+        }
+    }, {
+        key: 'optionRemove',
+        value: function optionRemove(optionTarget) {
+            console.log("called it!", optionTarget);
         }
     }, {
         key: 'optionSelect',
@@ -71,7 +77,7 @@ var Self = function (_React$Component) {
                 'div',
                 null,
                 React.createElement(Header, null),
-                React.createElement(Options, { options: this.state.options }),
+                React.createElement(Options, { options: this.state.options, optionRemove: this.optionRemove }),
                 React.createElement(OptionEntry, {
                     optionCount: this.state.options.length,
                     optionClear: this.optionClear,
@@ -112,22 +118,6 @@ var Header = function Header() {
 //     }
 // }
 
-var Option = function Option(props) {
-    return React.createElement(
-        'p',
-        null,
-        props.option
-    );
-};
-
-// class Option extends React.Component {
-//     render() {
-//         return (
-//             <p>{this.props.option}</p>
-//         );
-//     }
-// }
-
 var Options = function Options(props) {
     var options = props.options;
 
@@ -135,7 +125,7 @@ var Options = function Options(props) {
         'div',
         null,
         options.map(function (opt, idx) {
-            return React.createElement(Option, { key: idx, option: opt });
+            return React.createElement(Option, { key: idx, option: opt, optionRemove: props.optionRemove });
         })
     );
 };
@@ -148,6 +138,33 @@ var Options = function Options(props) {
 //             <div>
 //                 {options.map((opt, idx) => <Option key={idx} option={opt} />)}
 //             </div>
+//         );
+//     }
+// }
+
+var Option = function Option(props) {
+    return React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'p',
+            null,
+            props.option
+        ),
+        React.createElement(
+            'button',
+            { onClick: function onClick(e) {
+                    return props.optionRemove(props.option);
+                } },
+            'Remove'
+        )
+    );
+};
+
+// class Option extends React.Component {
+//     render() {
+//         return (
+//             <p>{this.props.option}</p>
 //         );
 //     }
 // }
