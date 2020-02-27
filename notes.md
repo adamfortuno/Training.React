@@ -537,6 +537,42 @@ componentDidUpdate(prevProps, prevState) {
 }
 ```
 
+## Web Pack
+
+Web Pack lets developers...
+
+- Web Pack is an asset bundler. Packages your JavaScript files into a bundle.js file.
+- Web Pack lets developers organize components into separate files.
+- Lets developers download modules via yarn and/or npm
+- Lets us take advantage of thirdparty libraries in our project.
+
+
+There is an ordering to the javascript files you load in your html file.
+
+You want to locally install all the modules that someone else would need to run your project.
+You can setup aliases to run modules registered by your project.
+
+You can uninstall the global modules with the following:
+
+```javascript
+yarn global remove babel-cli live-server
+
+npm uninstall -g babel-cli live-server
+```
+
+```javascript
+yarn add live-server@1.2.0 babel-cli@6.24.1
+```
+
+```javascript
+"scripts": {
+  "serve": "live-server public/",
+  "build": "babel src/app.js --out-file=public/scripts/app.js --presets=\"env,react\" --watch",
+}
+```
+
+yarn run serve
+yarn run build
 
 ## Questions
 
