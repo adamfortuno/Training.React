@@ -17,9 +17,7 @@ class Self extends React.Component {
     }
 
     optionClear() {
-        this.setState(() => {
-            return { options: [] };
-        });
+        this.setState(() => ({ options: [] }) );
     }
 
     optionSelect() {
@@ -44,11 +42,7 @@ class Self extends React.Component {
             throw new Error("The option already exists.");
         }
 
-        this.setState((ps) => {
-            return {
-                options: ps.options.concat(newOption)
-            }
-        });
+        this.setState((ps) => ({ options: ps.options.concat(newOption) }) );
     }
 
     render() {
@@ -140,9 +134,7 @@ class OptionEntry extends React.Component {
     optionAdd(event) {
         event.preventDefault();
 
-        this.setState(() => {
-            return { "error": undefined };
-        });
+        this.setState(() => ({ "error": undefined }) );
 
         try {
             this.props.optionAdd(event.target.elements.option.value.trim());
@@ -150,9 +142,7 @@ class OptionEntry extends React.Component {
         } catch (error) {
             console.error(error.message);
 
-            this.setState(() => {
-                return { "error": error.message };
-            });
+            this.setState(() => ({ "error": error.message }) );
         }
     }
 
