@@ -34,16 +34,17 @@ class Counter extends React.Component {
         );
     }
     componentDidMount() {
-        const counter = localStorage.getItem('count');
-        
-        if ( counter && isNaN(1 * counter) === false ) {
+        const counterString = localStorage.getItem('count'); 
+        const counterNumeric =
+            (counterString) ? parseInt(counterString) : undefined;
+
+        if ( counterNumeric && !isNaN(counterNumeric) ) {
             this.setState( () => {
-                return { counter: parseInt(counter) };
+                return { counter: counterNumeric };
             });
         }
     }
     componentDidUpdate() {
-        console.log('go', this.state.counter);
         localStorage.setItem('count', this.state.counter);
     }
 }

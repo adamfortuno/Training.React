@@ -79,18 +79,18 @@ var Counter = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            var counter = localStorage.getItem('count');
+            var counterString = localStorage.getItem('count');
+            var counterNumeric = counterString ? parseInt(counterString) : undefined;
 
-            if (counter && isNaN(1 * counter) === false) {
+            if (counterNumeric && !isNaN(counterNumeric)) {
                 this.setState(function () {
-                    return { counter: parseInt(counter) };
+                    return { counter: counterNumeric };
                 });
             }
         }
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate() {
-            console.log('go', this.state.counter);
             localStorage.setItem('count', this.state.counter);
         }
     }]);
