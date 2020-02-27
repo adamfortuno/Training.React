@@ -97,6 +97,24 @@ var Self = function (_React$Component) {
                 })
             );
         }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var optionsJSON = localStorage.getItem('options');
+
+            if (optionsJSON) {
+                this.setState(function () {
+                    return { options: JSON.parse(optionsJSON) };
+                });
+            }
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps, prevState) {
+            if (prevState.options.length !== this.state.options.length) {
+                localStorage.setItem('options', JSON.stringify(this.state.options));
+            }
+        }
     }]);
 
     return Self;
