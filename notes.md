@@ -240,7 +240,7 @@ You're initializing your project before installing the local modules/presets so 
 
 ```sh
 npm install -g babel-cli@6.24.1
-yarn init --yes
+yarn init --yes`
 yarn add babel-preset-react@6.24.1
 yarn add babel-preset-env@1.5.2
 ```
@@ -546,6 +546,13 @@ Web Pack lets developers...
 - Lets developers download modules via yarn and/or npm
 - Lets us take advantage of thirdparty libraries in our project.
 
+You have to create a configuration file so Web Pack knows what to do.
+The configuration file is a Node.js script.
+The config needs...
+ - Entry point
+ - Output location
+
+https://webpack.js.org/
 
 There is an ordering to the javascript files you load in your html file.
 
@@ -573,6 +580,52 @@ yarn add live-server@1.2.0 babel-cli@6.24.1
 
 yarn run serve
 yarn run build
+
+install npm module
+modify one of your React scripts to import the module
+ - check the modules docs to determine how to import it
+
+```javascript
+import validator from 'validator';
+```
+
+yarn add react@16.0.0 react-dom@16.0.0
+
+you can use a laoder in your webpack configuration file to run a javascript file through babel
+ - babel-core
+ - babel-loader
+
+Use the `.bablrc` to specify presets to be loaded by the laoder
+
+This produces a dev build
+
+its a common practice to put one component in a given file.
+you need to add the React import to all components since those files use the react module
+
+- when you get an error, the error will be reported to its location in the webpack bundle.
+- you can use a source map to better show the error's location in the source
+> devtool
+> make the change in the web pack configuration file
+When you modify the web pack config, you need to restart web pack (even if running under watch) for the change to get picked up.
+All modern browsers support source maps (not just chrome)
+Source maps let you find where (in the source files) an error occurred.
+
+Web pack ships with a little development server.
+Web pack's docs provide information about the DevServer.
+ - Setup instructions
+You need the 'webpack-dev-server'
+You need to tell the server where you HTML files are
+ - You make that change in the web pack cofngiuration file
+
+```javascript
+devServer: {
+  contentBase: path.join(__dirname, 'public')
+}
+```
+
+The web pack development servers runs content from memory.
+It doesn't create a packaged file.
+
 
 ## Questions
 
