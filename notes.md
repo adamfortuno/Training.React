@@ -626,6 +626,166 @@ devServer: {
 The web pack development servers runs content from memory.
 It doesn't create a packaged file.
 
+download the module.
+add the configuration to the web pack config file
+add the script to the yarn config file - package.json
+
+React....
+
+You can pass JSX into a prop in two ways...
+- Named prop
+- children prop value
+
+```javascript
+'use strict';
+
+import ReactDOM from 'react-dom';
+
+console.log('First Approach - Passing JSX as a Named Prop.');
+
+const Foo = () => {
+    return (
+        <p>My Foo Content!</p>
+    );
+};
+
+const App = (props) => {
+    return (
+        <div>
+            <h1>My new application!</h1>
+            {props.content}
+            <p>By Adam</p>
+        </div>
+    );
+};
+
+ReactDOM.render(<App content={<Foo/>} />, document.getElementById('app'));
+```
+
+```javascript
+import ReactDOM from 'react-dom';
+
+console.log('Second Approach - Passing JSX as a Child Prop');
+
+const App = (props) => {
+    return (
+        <div>
+            <p>Header</p>
+            {props.children}
+            <p>Footer</p>
+        </div>
+    );
+};
+
+ReactDOM.render(<App><p>Some sort of content!</p></App>, document.getElementById('app'));
+```
+
+#### Modal
+
+Install the component using yarn:
+
+yarn add react-modal@2.2.2
+
+restart the dev server
+
+yarn run dev-server
+
+Add the modal component to your project. The JSX w/the Modal
+looks like....
+
+```javascript
+<Modal isOpen={!!props.selectedOption} contentLabel="something" onRequestClose={props.optionSelectReset}>
+    <h3>Selected option is....</h3>
+    {props.selectedOption && <p>{props.selectedOption}</p>}
+    <button onClick={props.optionSelectReset}>Okay</button>
+</Modal>
+```
+
+#### Styling
+
+##### Option-1
+
+1. Install the css and style loaders:
+
+```sh
+yarn add css-loader@0.28.4 style-loader@0.18.2
+```
+
+2. Modify your webpack configuration file to process css files by adding the following to your $.module.rules array:
+
+```javascript
+{
+    use: [sa
+        'style-loader', 'css-loader'
+    ],
+    test: /\.css$/
+}
+```
+
+3. Import the css file you want to bind to your project:
+
+```javascript
+import './styles/style.css';
+```
+
+4. Ensure the a directory and style sheet exist in `./styles/style.css`.
+5. Restart/start webpack's dev server.
+
+##### Option-2
+
+The SASS loader will use node SASS to translate and apply the SCSS to your site.
+
+1. Create a [SCSS](sass-lang.com) file in `./styles/style.scss`.
+
+```scss
+$brand-color: orange;
+
+* {
+    color: $brand-color;
+}
+```
+
+2. Install the SASS loader and node modules:
+
+```javascript
+yarn add sass-loader node-sass
+
+```
+3. Configure webpack to use the moduelsas loaders:
+
+```javascript
+{
+    test: /\.scss$/,
+    use: ['style-loader', 'css-loader', 'sass-loader']
+}
+```
+
+4.  Import the css file you want to bind to your project:
+
+```javascript
+import './styles/style.scss';
+```
+
+5. Start/restart your webserver.
+
+##### CSS
+
+- You can specify sizes in pixels (px) or rem's
+- Suggest using `rem` because they scale better - accessibility
+- BEM naming is a convetion for naming blocks and elements.
+- CSS Reset: Is a thing that makes sure the browser is starting from the same place.
+- You can get prepared resets - such as normalize.css.
+
+1. Install the module.
+
+```sh
+yarn add normalize.css
+```
+
+2. Import the code from the module by adding the following import to your app.js file.
+
+import '';
+
 
 ## Questions
 

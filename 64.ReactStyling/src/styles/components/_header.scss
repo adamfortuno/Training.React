@@ -1,0 +1,18 @@
+.header {
+    background: $color-black-off;
+    color: white;
+    margin-bottom: $sizign-xlarge;
+    padding: $sizing-medium 0;
+}
+
+.header__title {
+    font-size: $sizing-large;
+    margin: 0;
+}
+
+.header__subtitle  {
+    color: $color-purple-light;
+    font-size: $sizing-medium;
+    font-weight: 500;
+    margin: 0;
+}

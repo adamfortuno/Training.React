@@ -1,0 +1,30 @@
+.query-button {
+    background: $color-purple;
+    border: none;
+    border-bottom: .6rem solid darken($color-purple, 5%);
+    color: white;
+    font-size: $sizing-large;
+    font-weight: bold;   
+    margin-bottom: $sizign-xlarge;
+    padding: 2.4rem;
+    width: 100%;
+}
+.query-button:disabled {
+    opacity: .5;
+}
+
+.add-button {
+    background: $color-purple;
+    border: none;
+    border-bottom: .6rem solid darken($color-purple, 5%);
+    color: white;
+    font-weight: 500;
+    padding: $sizing-small;
+}
+
+.remove-button {
+    background: none;
+    border: none;
+    color: $color-purple-light;
+    padding: 0;
+}
